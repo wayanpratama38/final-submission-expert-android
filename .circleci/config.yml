@@ -5,28 +5,21 @@ orbs:
 
 jobs:
   build:
-    executor:
-      name: android/android
-      tag: '2023.09.1'
+    docker:
+      - image: cimg/android:2024.01.1 
     steps:
       - checkout
       
       - run:
-          name: Set Java 17
-          command: |
-            sudo update-alternatives --set java /usr/local/openjdk-17/bin/java
-            sudo update-alternatives --set javac /usr/local/openjdk-17/bin/javac
-      
-      - run:
           name: Verify Java Version
-          command: java -version
-
+          command: java -version  
+      
       - restore_cache:
           key: android-orb-v1-
       
       - run:
           name: Chmod permissions
-          command: sudo chmod +x ./gradlew
+          command: chmod +x ./gradlew 
       
       - run:
           name: Download Dependencies
