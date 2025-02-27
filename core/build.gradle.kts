@@ -67,6 +67,10 @@ dependencies {
     implementation(libs.androidx.room.runtime)
     ksp(libs.room.compiler)
 
+    // SQLCipher Dependency
+    implementation(libs.android.database.sqlcipher)
+    implementation(libs.androidx.sqlite.ktx)
+
     // Sharing Dependency with api
     api(libs.recyclerview)
     api(libs.material)

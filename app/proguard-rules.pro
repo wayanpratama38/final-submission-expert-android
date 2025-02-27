@@ -19,3 +19,31 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+##---------------Begin: proguard configuration for Navigation Component ----------
+-keepclassmembers class * extends androidx.navigation.dynamicfeatures.fragment.DynamicNavHostFragment {
+    public *;
+}
+
+## Library yang hanya digunakan di :app
+## Koin
+-keep class org.koin.** { *; }
+-keepclassmembers class * { @org.koin.core.annotation.* *; }
+
+## Model class aplikasi
+-keep class com.example.app.data.model.** { *; }
+
+# OkHttp ProGuard Rules
+-keepattributes Signature
+-keep class okhttp3.** { *; }
+-keep class okhttp3.internal.** { *; }
+-dontwarn okhttp3.**
+-dontwarn okio.**
+-dontwarn javax.annotation.**
+
+
+## Glide
+-keep public class * implements com.bumptech.glide.module.GlideModule
+
+## Coroutines Flow
+-keepclassmembernames class kotlinx.coroutines.** { volatile <fields>; }
