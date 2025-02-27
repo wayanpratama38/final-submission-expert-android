@@ -1,3 +1,5 @@
+@file:Suppress("EmptyMethod")
+
 package com.example.core.data.source
 
 import com.example.core.data.source.remote.network.ApiResponse
