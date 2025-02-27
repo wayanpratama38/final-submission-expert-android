@@ -10,6 +10,7 @@ import com.example.core.domain.repository.IMealRepository
 import com.example.core.utils.AppExecutors
 import net.sqlcipher.database.SQLiteDatabase
 import net.sqlcipher.database.SupportFactory
+import okhttp3.CertificatePinner
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
@@ -35,10 +36,15 @@ val databaseModule = module{
 
 val networkModule = module {
     single {
+        val hostName = "themealdb.com"
+        val certificatePinner = CertificatePinner.Builder()
+            .add(hostName,"sha256/cfyBZmNVYdUGM4NFYlyCgnZnH2fKOyHevCaxN7wwPT8=")
+            .build()
         OkHttpClient.Builder()
             .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
             .connectTimeout(120, TimeUnit.SECONDS)
             .readTimeout(120, TimeUnit.SECONDS)
+            .certificatePinner(certificatePinner)
             .build()
     }
 
