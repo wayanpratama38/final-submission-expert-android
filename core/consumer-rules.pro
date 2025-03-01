@@ -6,7 +6,6 @@
 -keep class com.squareup.leakcanary.** { *; }
 -keep class leakcanary.** { *; }
 
-
 ##---------------Begin: proguard configuration for SQLCipher  ----------
 -keep,includedescriptorclasses class net.sqlcipher.** { *; }
 -keep,includedescriptorclasses interface net.sqlcipher.** { *; }

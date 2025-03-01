@@ -19,6 +19,8 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+#-dontobfuscate
+#-keepattributes SourceFile,LineNumberTable
 
 ##---------------Begin: proguard configuration for Navigation Component ----------
 -keepclassmembers class * extends androidx.navigation.dynamicfeatures.fragment.DynamicNavHostFragment {
