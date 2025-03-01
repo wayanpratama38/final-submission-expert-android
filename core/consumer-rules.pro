@@ -100,9 +100,10 @@ public *;
 -keep class * extends androidx.room.RoomDatabase
 -keepclassmembers class * { @androidx.room.* *; }
 
+-dontwarn java.lang.invoke.StringConcatFactory
 
-
-
+-keep class com.example.core.di.** { *; }
+-keep class com.example.core.data.source.local.entity.** { *; }
 # Uncomment for DexGuard only
 #-keepresourcexmlelements manifest/application/meta-data@value=GlideModule
  

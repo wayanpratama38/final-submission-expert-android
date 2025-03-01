@@ -49,3 +49,5 @@
 
 ## Coroutines Flow
 -keepclassmembernames class kotlinx.coroutines.** { volatile <fields>; }
+
+-keep class com.example.core.di.CoreModuleKt

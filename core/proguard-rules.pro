@@ -19,3 +19,14 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+-dontwarn java.lang.invoke.StringConcatFactory
+-keep class com.example.core.** { *; }
+# Keep Koin classes
+-keep class org.koin.** { *; }
+-keepclassmembers class org.koin.** { *; }
+
+# Keep CoreModuleKt (modul Koin di core)
+-keep class com.example.core.di.CoreModuleKt { *; }
+-keepclassmembers class com.example.core.di.CoreModuleKt { *; }
+
