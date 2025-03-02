@@ -123,6 +123,10 @@ public *;
 -keep class com.example.core.data.source.remote.response.DetailResponse { *; }
 
 -keep class com.example.core.data.source.Resource { *; }
+-keep class com.example.core.data.source.Resource$Success
+-keep class com.example.core.data.source.Resource$Loading
+-keep class com.example.core.data.source.Resource$Error
+
 -keepclassmembers class * implements java.io.Serializable {
   static final long serialVersionUID;
 }

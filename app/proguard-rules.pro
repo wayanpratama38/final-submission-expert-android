@@ -55,5 +55,9 @@
 -keep class **ViewBinding { *; }
 
 -keep class com.example.core.data.source.Resource { *; }
+-keep class com.example.core.data.source.Resource$Success
+-keep class com.example.core.data.source.Resource$Loading
+-keep class com.example.core.data.source.Resource$Error
+
 ## Recycler View Adapater
 -keep class com.example.foodist.presentation.utils.RvAdapter { *; }
