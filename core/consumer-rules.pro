@@ -100,10 +100,6 @@ public *;
 -keep class * extends androidx.room.RoomDatabase
 -keepclassmembers class * { @androidx.room.* *; }
 
--dontwarn java.lang.invoke.StringConcatFactory
-
--keep class com.example.core.di.** { *; }
--keep class com.example.core.data.source.local.entity.** { *; }
 # Uncomment for DexGuard only
 #-keepresourcexmlelements manifest/application/meta-data@value=GlideModule
  
@@ -111,3 +107,36 @@ public *;
 ##---------------Begin: proguard configuration for RxJava ----------
 # Uncomment if you use RxJava
 #-dontwarn java.util.concurrent.Flow*
+
+-dontwarn java.lang.invoke.StringConcatFactory
+
+# Keep CoreModuleKt (modul Koin di core)
+-keep class com.example.core.di.CoreModuleKt { *; }
+-keepclassmembers class com.example.core.di.CoreModuleKt { *; }
+
+# Data Package
+-keep class com.example.core.data.source.local.room.MealDao { *; }
+-keep class com.example.core.data.source.local.entity.MealEntity { *; }
+
+
+-keep class com.example.core.data.source.remote.response.MealItem { *; }
+-keep class com.example.core.data.source.remote.response.DetailResponse { *; }
+
+-keep class com.example.core.data.source.Resource { *; }
+-keepclassmembers class * implements java.io.Serializable {
+  static final long serialVersionUID;
+}
+
+# Domain Package
+-keep class com.example.core.domain.model.Meal { *; }
+-keep class com.example.core.domain.repository.IMealRepository { *; }
+-keep class com.example.core.domain.usecase.MealUseCase { *; }
+-keep class com.example.core.domain.usecase.MealInteractor { *; }
+-keep class com.example.core.utils.DataMapper { *; }
+-keep class com.example.core.utils.AppExecutors { *; }
+
+
+# Keep Class ViewBinding
+-keep class **ViewBinding { *; }
+-keep class com.example.core.databinding.** { *; }
+

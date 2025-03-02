@@ -51,3 +51,8 @@
 -keepclassmembernames class kotlinx.coroutines.** { volatile <fields>; }
 
 -keep class com.example.core.di.CoreModuleKt
+
+-keep class **ViewBinding { *; }
+
+## Recycler View Adapater
+-keep class com.example.foodist.presentation.utils.RvAdapter { *; }
